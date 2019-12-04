@@ -1,3 +1,79 @@
+const myForm = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const msg = document.querySelector('.msg');
+const userList = document.querySelector('#users');
+
+
+myForm.addEventListener('submit', onSubmit);
+
+function onSubmit(e) {
+	e.preventDefault();
+
+	if(nameInput.value === '' || emailInput.value === '') {
+		msg.classList.add('error');
+		msg.innerHTML = 'Please enter all fields';
+
+		setTimeout(() => msg.remove(), 3000);
+	} else {
+		// console.log('success');
+		const li = document.createElement('li');
+		li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
+
+		userList.appendChild(li);
+
+		//clear fields
+		nameInput.value = '';
+		emailInput.value = '';
+	}
+}
+
+
+
+
+
+// const btn = document.querySelector('.btn');
+
+// btn.addEventListener('click', e => {
+// 	e.preventDefault();
+// 	console.log('click');
+// });
+
+// const ul = document.querySelector('.items');
+
+// ul.remove();
+// ul.lastElementChild.remove();
+// ul.firstElementChild.textContent = 'Hello';
+// ul.children[1].innerText = 'Biyaga';
+// ul.lastElementChild.innerHTML = '<h1>Patrick</h1>';
+
+
+// const btn = document.querySelector('.btn');
+// btn.style.background = 'red';
+
+
+// const items = document.querySelectorAll('.item');
+
+// items.forEach(item => console.log(item));
+
+
+// Single element
+// console.log(document.getElementById('my-form'));
+// console.log(document.querySelector('h1'));
+
+
+// Multîple element
+// console.log(document.querySelectorAll('.item'));
+// console.log(document.getElementByClassName('item'));
+// console.log(document.getElementByTagName('li'));
+
+
+
+
+
+
+
+
 //-- let, const
 
 // const age = 30;
@@ -149,7 +225,7 @@
 // rdv Loop with for
 // for(let i = 0; i < rdv.length; i++) {
 // 	console.log(rdv[i].text);
-}
+// }
 
 //OR
 // for(let pat of rdv ) {
@@ -193,105 +269,105 @@
 
 //---------------- Conditions
 
-const x = 5;
+// const x = 5;
 
-if(x === 10) {
-	console.log('x is 10');
-} else if(x > 10) {
-	console.log('x is greater than 10');
-} else {
-	console.log('x is less than 10');
-}
+// if(x === 10) {
+// 	console.log('x is 10');
+// } else if(x > 10) {
+// 	console.log('x is greater than 10');
+// } else {
+// 	console.log('x is less than 10');
+// }
 
-//-----------------
-const x = 4;
-const y = 11;
+// //-----------------
+// const x = 4;
+// const y = 11;
 
-if(x > 5 || y > 10) {
-	console.log('x is more than 5 or y is more than 10');
-}
+// if(x > 5 || y > 10) {
+// 	console.log('x is more than 5 or y is more than 10');
+// }
 
-//----------
-const x = 10;
-const color = x > 10 ? 'red' : 'blue';
-console.log(color);
+// //----------
+// const x = 10;
+// const color = x > 10 ? 'red' : 'blue';
+// console.log(color);
 
-//OR
-switch(color) {
-	case 'red':
-		console.log('color is red');
-		break;
-	case 'blue':
-		console.log('color is blue');
-		break;
-	default:
-		console.log('color is NOT read or blue');
-		break;	
-}
+// //OR
+// switch(color) {
+// 	case 'red':
+// 		console.log('color is red');
+// 		break;
+// 	case 'blue':
+// 		console.log('color is blue');
+// 		break;
+// 	default:
+// 		console.log('color is NOT read or blue');
+// 		break;	
+// }
 
 //-------------- function()
-function addNums(num1, num2) {
-	console.log(num1 + num2);
-}
+// function addNums(num1, num2) {
+// 	console.log(num1 + num2);
+// }
 
-addNums(4,5);
+// addNums(4,5);
 //--OR
-function addNums(num1 = 1, num2 = 1) {
-	console.log(num1 + num2);
-}
+// function addNums(num1 = 1, num2 = 1) {
+// 	console.log(num1 + num2);
+// }
 
-addNums(4,5);
-
-//--OR
-function addNums(num1, num2) {
-	return num1 + num2;
-}
-
-console.log(addNums(4,5));
+// addNums(4,5);
 
 //--OR
-const addNums (num1 = 1, num2 = 1) => {
-	return num1 + num2;
-}
+// function addNums(num1, num2) {
+// 	return num1 + num2;
+// }
 
-console.log(addNums(4,5));
-
-//--OR
-const addNums = (num1 = 1, num2 = 1) => {
-	console.log(num1 + num2);
-}
-
-addNums(5,5);
+// console.log(addNums(4,5));
 
 //--OR
-const addNums = (num1 = 1, num2 = 1) => console.log(num1 + num2);
-addNums(5,5);
+// const addNums = (num1 = 1, num2 = 1) => {
+// 	return num1 + num2;
+// }
+
+// console.log(addNums(4,5));
 
 //--OR
-const addNums = (num1 = 1, num2 = 1) => num1 + num2;
-console.log(addNums(5,5));
+// const addNums = (num1 = 1, num2 = 1) => {
+// 	console.log(num1 + num2);
+// }
+
+// addNums(5,5);
+
+//--OR
+// const addNums = (num1 = 1, num2 = 1) => console.log(num1 + num2);
+// addNums(5,5);
+
+//--OR
+// const addNums = (num1 = 1, num2 = 1) => num1 + num2;
+// console.log(addNums(5,5));
 
 //--
-const addNums = num1 => num1 + 5;
-console.log(addNums(5));
+// const addNums = num1 => num1 + 5;
+// console.log(addNums(5));
 
 
 //-- construct function with prototype
-function Persons(firstName, lastName, dob) {
-	this.firstName = firstName;
-	this.lastName = lastName;
-	this.dob = new Date(dob);
-	this.getBirthYear = function() {
-		return this.dob.getFullYear();
-	}
-	this.getFullName = function() {
-		return `${this.firstName} ${this.lastName}`;
-	}
-}
+// function Persons(firstName, lastName, dob) {
+// 	this.firstName = firstName;
+// 	this.lastName = lastName;
+// 	this.dob = new Date(dob);
+// 	this.getBirthYear = function() {
+// 		return this.dob.getFullYear();
+// 	}
+// 	this.getFullName = function() {
+// 		return `${this.firstName} ${this.lastName}`;
+// 	}
+// }
 
 // Instantiate object
-const person1 = new Persons('John', 'Doe', '4-3-1988');
-const person2 = new Persons('Isaac', 'Patrick', '3-6-1990');
+// const person1 = new Persons('pat', 'Biyaga', '4-3-1988');
+// const person2 = new Persons('Isaac', 'Patrick', '3-6-1990');
 
-console.log(person1.getBirthYear());
-console.log(person1.getFullName());
+// console.log(person1.getBirthYear());
+// console.log(person1.getFullName());
